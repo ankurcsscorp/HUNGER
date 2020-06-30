@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUNGER</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <link rel="stylesheet" href="./Style/Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="loginInfo">
+        <!-- <span class="login">Login </span><span class="signup"> SignUp</span> -->
+        <span class="loginInfo login" id="myLoginInfo" data-toggle="modal" data-target="#modalLRForm">Login Signup</span>
+        <span class="signup" id="logoutID" onclick="logOutID()"> Logout</span>
+      </div>
+
+      <div class="brandOverview">
+        <h1 class="brand">HUNGER</h1>
+        <h3 class="slogan">Discover the best food & drinks in Bangalore</h3>
+      </div>
+        <div class="input-group md-form form-sm form-1 pl-0" id="inpField">
+            <div class="input-group-prepend">
+              <span class="input-group-text purple lighten-3" id="basic-text1"><i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+            <input id="SearchInput" class="form-control my-0 py-1" type="text" placeholder="Hunger! Search your food here !! . ." aria-label="Search" onkeyup="search()">
+          </div>
+      </nav>
+<div class="container ">
+    <div class="row justify-content-center">
+    <div class="dropdown col-xs-4">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sort by
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdown-sort">
+          <a class="dropdown-item" href="#">Sort by Rating</a>
+          <a class="dropdown-item" href="#">Sort by ETA</a>
+        </div>
+      </div>
+      <div class="dropdown col-xs-4">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filter by
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdown-filter">
+          <a class="dropdown-item" href="#">North Indian</a>
+          <a class="dropdown-item" href="#">Fast Food</a>
+          <a class="dropdown-item" href="#">Mughlai</a>
+          <a class="dropdown-item" href="#">American</a>
+          <a class="dropdown-item" href="#">Indian</a>
+          <a class="dropdown-item" href="#">Thalis</a>
+          <a class="dropdown-item" href="#">Street Food</a>
+          <a class="dropdown-item" href="#">Continental</a>
+          <a class="dropdown-item" href="#">South Indian</a>
+          <a class="dropdown-item" href="#">Snacks</a>
+          <a class="dropdown-item" href="#">Chinese</a>
+          <a class="dropdown-item" href="#">Italian</a>
+          <a class="dropdown-item" href="#">Cafe</a>
+        </div>
+      </div>
+      <button class="btn btn-danger col-xs-12 col-sm-4 favourite-btn" onclick="seeAllFavouriteRestro()">Your favourite Restro</button>
+    </div>
+</div>
+<p style="text-align: center; display: none;" id="successMessage" class="alert alert-success"></p>
+<div class="container">
+    <div class="row" id="HotelList">
+    </div>
+    <h1 id="notificationMessage"></h1>
+</div>
+<footer>
+  <p class="dev"><strong>Developed by : </strong>Ankur singh</p>
+  <p id="copy">Copyright@2020</p>
+</footer>
+<!--Modal: Login / Register Form-->
+<div class="modal " id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs tabs-2 text-white bg-primary" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i>
+              Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i>
+              Sign Up</a>
+          </li>
+          <li class="nav-item" id="crossButton" data-dismiss="modal">X</li>
+        </ul>
+
+        <!-- Tab panels -->
+        <div class="tab-content">
+          <!--Panel 7-->
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body mb-1">
+              <p id="ErrorMessage" class="alert alert-danger" style="display: none;"></p>
+              <div class="md-form form-sm mb-3">
+                <i class="fa fa-envelope prefix"></i> <label data-error="wrong" data-success="right" for="modalLRInput10"> Email</label>
+                <input type="email" id="modalLRInput10" class="form-control validate" placeholder="Email Ex: xxx123@hunger.com">
+                
+              </div>
+
+              <div class="md-form form-sm mb-4">
+                <i class="fa fa-lock prefix"></i> <label data-error="wrong" data-success="right" for="modalLRInput11"> Password</label>
+                <input type="password" id="modalLRInput11" class="form-control validate" placeholder="Please Enter your Password">
+                
+              </div>
+              <div class="text-center mt-2">
+                <button class="btn btn-info" id="loginSubmit" onclick="loginForm()">Log in <i class="fa fa-sign-in ml-1"></i></button>
+              </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-center text-md-right mt-1">
+                <p>Not a member? <a data-toggle="tab" href="#panel8" role="tab" class="blue-text" style="color: blue;">Sign Up</a></p>
+                <p>Forgot <a href="#" class="blue-text" style="color: blue;">Password?</a></p>
+              </div>
+              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+          <!--/.Panel 7-->
+
+          <!--Panel 8-->
+          <div class="tab-pane" id="panel8" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body">
+              <div class="md-form form-sm mb-2">
+                <i class="fa fa-user mr-1"></i> <label data-error="wrong" data-success="right" for="modalLRInput12">Name</label>
+                <input type="text" id="modalLRInput12" class="form-control validate" placeholder="Please Enter your First Name" onkeyup="validateName()">
+              </div>
+              <div class="md-form form-sm mb-2">
+                <i class="fa fa-envelope prefix"></i> <label data-error="wrong" data-success="right" for="modalLRInput13" > Email Id</label>
+                <input type="email" id="modalLRInput13" class="form-control validate" placeholder="Email Ex: xxx123@hunger.com" onkeyup="validateEmail()">
+              </div>
+              <div class="md-form form-sm mb-2">
+                <i class="fa fa-phone" aria-hidden="true"></i> <label data-error="wrong" data-success="right" for="modalLRInput14"> Mobile Number</label>
+                <input type="text" id="modalLRInput14" class="form-control validate" placeholder="Mobile Ex: +91 98XXXXX123" onkeyup="validateMob()">
+              </div>
+
+              <div class="md-form form-sm mb-2">
+                <i class="fa fa-lock prefix"></i> <label data-error="wrong" data-success="right" for="modalLRInput15"> Password</label>
+                <input type="password" id="modalLRInput15" class="form-control validate" placeholder="Please Enter your Password" onkeyup="validatePass()">
+                <p class="pwRules"><b>Note: </b>Your password must be a minimum of 8 characters, including at least 1 upper case letter, 1 lower case letter, 1 number & 1 special latter</p>
+              </div>
+              <div class="text-center form-sm mt-2">
+                <button class="btn btn-info" onclick="validationAll();">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+              </div>
+
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <div class="options text-right">
+                <p class="pt-1">Already have an account? <a data-toggle="tab" href="#panel7" role="tab" class="blue-text" style="color: blue;">Log In</a></p>
+              </div>
+              <button type="submit" value="validate" class="btn btn-outline-info waves-effect ml-auto" id="closeButton" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          <!--/.Panel 8-->
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<script src="./Script/dropdown.js"></script>
+<script src="./Script/mainContent.js"></script>
+<script src="./Login/login.js"></script>
+</body>
+</html>

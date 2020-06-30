@@ -1,0 +1,253 @@
+nav {
+  /* margin-top: 50px; */
+  height: 300px; 
+  background-image: url("../images/blog_banner_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#crossButton{
+  margin-left: 51%;
+  margin-top: -3px;
+  font-size: 30px;
+  cursor: pointer;
+}
+#crossButton:hover{
+  color: red;
+}
+.container{
+  margin-top: 10px;
+}
+.dropdown, .btn{
+    display: inline;
+    margin: 2px
+}
+#inpField{
+  width: 50%;
+margin-left: 25%;
+}
+
+.checked {
+    color: white;
+    font-size: 13px;
+  }
+
+  .tags {
+    color: gray; 
+    font-size: 10px;
+  }
+  @media screen and (max-width: 540px) {
+    .row {
+      margin-right: -5%;
+      margin-left: -19%;
+    }
+    #inpField{
+      width: 200%;
+    margin-left: 0%;
+    }
+    .pwRules
+    {
+      font-size: 10px;
+    }
+  }
+  @media only screen and (max-width: 992px) and (min-width: 768px)  {
+    .row {
+      margin-right: 3%;
+      margin-left: 8%;
+    }
+    .pwRules
+    {
+      font-size: 11px;
+    }
+  }
+  @media only screen and (max-width: 1200px) and (min-width: 982px)  {
+    .row {
+      margin-right: 0px;
+      margin-left: 13px;
+    }
+    .pwRules
+    {
+      font-size: 14px;
+    }
+  }
+  .rating {
+    background-color: #db7c38; 
+    display: inline; 
+    padding-left: 5px; 
+    padding-right: 5px;
+  }
+
+  .eta {
+    font-size: 11px; 
+    color: gray; 
+    padding-left:11px; 
+    padding-right: 11px;
+  }
+
+  .view-menu {
+    padding-left: 11px; 
+    padding-right: 11px; 
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+    background-color:seagreen; 
+    color: white; 
+    border-radius: 5px; 
+    font-size: 12px;
+  }
+
+  .view-menu:hover {
+      color: yellow;
+      text-decoration: none;
+  }
+
+  .card {
+      width: 250px;
+      margin-bottom: 30px;
+      /* margin-inline-start: -25px; */
+  }
+  @media screen and (max-width: 480px) {
+    .card {
+      width: 317px;
+      margin-left: 16%;
+    }
+  }
+  .card-img-top {
+    width:100%
+  }
+  
+  .card-title {
+      font-size: 14px;
+      font-weight: bold;
+  }
+
+  #HotelList {
+      padding-top: 30px;
+  }
+
+  #fa-heart{
+      position: absolute;
+      font-size: 30px;
+      top: 0px;
+      right: 13px;
+      color: ghostwhite;
+  }
+  #fa-heart-red {
+    position: absolute;
+    font-size: 30px;
+    top: 0px;
+    right: 13px;
+    color: red;
+  }
+
+  #fa-heart:hover {
+      color: red;
+  }
+
+  #fa-heart:active {
+      color: red;
+  }
+
+  footer {
+    background-color: black;
+    width: 100%;
+    margin: 0px;
+    height: 100px;
+    /* border: solid 1px black; */
+    color: white;
+  }
+  #copy{
+    text-align: center;
+  }
+  @media screen and (max-width: 540px) {
+    .dev {
+      text-align: center;
+    }
+  }
+.brandOverview{
+position: absolute;
+top: 10px;
+left: 23%;
+color: white;
+text-align: center;
+/* font-weight: bold; */
+justify-content: center !important;
+}
+@media screen and (max-width: 480px) {
+  .brandOverview{
+    left: 0%;
+    top: 30px;
+    }
+}
+.loginInfo{
+  position: absolute;
+  top: 0px;
+  left: 77%;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer;
+  width: 121px;
+}
+.login{
+  margin-left: 15px;
+  cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  .loginInfo{
+    left: 46%;
+    /* font-weight: 300; */
+    font-size: 20px;
+  }
+  .slogan {
+    font-size: 19px;
+  }
+  #crossButton{
+    margin-left: 32%;
+}
+}
+@media screen and (min-width: 1130px) {
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .brandOverview{
+    left: 29%;
+    }
+    .pwRules{
+      font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 576px)  {
+ .brandOverview {
+   left: 9%;
+ }
+ .loginInfo{
+   left: 66%;
+ }
+ #inpField {
+  width: 80%;
+  margin-left: 10%;
+ }
+ #mobileManage{
+   width: 50%;
+ }
+}
+/* Signin page styling */
+
+a {
+    color: white;
+    border: white;
+}
+a:hover{
+    color: white;
+    border: white;
+}
+#ErrorMessage{
+text-align: center;
+color: rgb(230, 6, 6);
+}
+.nav-tabs .nav-link.active {
+  color: white;
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
